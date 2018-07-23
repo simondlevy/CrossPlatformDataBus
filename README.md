@@ -20,4 +20,4 @@ have such a sensor can just open the <b>File/CrossPlatformI2C/example</b> menu i
 RaspberryPi users should download and install WiringPi, then cd to
 CrossPlatformI2C/extras/wiringpi/examples, and run make to build the example. 
 Users of NVIDIA Jetson and other Linux-based boards can cd to CrossPlatformI2C/extras/i2cdev/examples, and run make.
-You may have to run this examples as root; i.e., <b>sudo ./MPU_WhoAmI</tt>.
+You may have to run this examples as root; i.e., <tt>sudo ./MPU_WhoAmI</tt>.
