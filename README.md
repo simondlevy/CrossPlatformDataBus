@@ -15,7 +15,7 @@ We've set up the library as a standard Arduino library, with <b>src</b> and <b>e
 simple, we provide a single example sketch 
 [MPU_WhoAmI.ino](https://github.com/simondlevy/CrossPlatformI2C/blob/master/examples/MPU_WhoAmI/MPU_WhoAmI.ino),
 which reads from the &ldquo;Who am I&rdquo; register (0x75) of an Invensense MPU Internal Measurement Unit
-(address 0x68).  Success at reading from this register results in a reported value of 0x71.  Arduino users who
+(device address 0x68).  Success at reading from this register results in a reported value of 0x71.  Arduino users who
 have such a sensor can just open the <b>File/CrossPlatformI2C/example</b> menu item to try out the sketch.
 RaspberryPi users should download and install WiringPi, then cd to
 CrossPlatformI2C/extras/wiringpi/examples, and run make to build the example. 
