@@ -17,8 +17,16 @@
  */
 
 #include "CrossPlatformI2C.h"
-
 #include <wiringPi.h>
+#include <stdio.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <string.h>
+
+static const uint8_t  MPU_ADDRESS = 0x68;
+static const uint8_t  MPU_WHOAMI  = 0x75;
+
+static uint8_t device;
 
 void setup()
 {
@@ -27,9 +35,17 @@ void setup()
         fprintf (stderr, "Unable to setup wiringPi: %s\n", strerror (errno));
         exit(1);
     }
+
+    device = cpi2c_open(MPU_ADDRESS);
+
+    cpi2c_delay(100);
 }
 
 void loop()
 {  
-    delay(1000);
+    uint8_t data;
+    cpi2c_readRegisters(device, MPU_WHOAMI, 1, &data);
+    printf("I am 0x%X\n", data);
+
+    cpi2c_delay(1000);
 }
