@@ -12,7 +12,7 @@ we provide a separate repository with support for each such sensor, which works 
 you use that sensor.
 
 We've set up the library as a standard Arduino library, with <b>src</b> and <b>examples</b> folders.  To keep things
-simple, we have a singe example sketch 
+simple, we provide a single example sketch 
 [MPU_WhoAmI.ino](https://github.com/simondlevy/CrossPlatformI2C/blob/master/examples/MPU_WhoAmI/MPU_WhoAmI.ino),
 which reads from the &ldquo;Who am I&rdquo; register (0x75) of an Invensense MPU Internal Measurement Unit
 (address 0x68).  Success at reading from this register results in a reported value of 0x71.  Arduino users who
