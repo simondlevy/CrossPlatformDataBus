@@ -28,12 +28,12 @@
 
 static const uint8_t I2C_BUS_NUMBER = 1;
 
-void I2C::delay(uint32_t msec)
+void cpi2c_delay(uint32_t msec)
 {
     usleep(msec*1000);
 }
 
-uint8_t I2C::setup(uint8_t address)
+uint8_t cpi2c_open(uint8_t address)
 {
     // Attempt to open /dev/i2c-<NUMBER>
     char fname[32];
@@ -53,12 +53,17 @@ uint8_t I2C::setup(uint8_t address)
     return fd;
 }
 
-void I2C::writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
+void cpi2c_close(uint8_t address)
+{
+    close(address);
+}
+
+void cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 {
     i2c_smbus_write_byte_data(address, subAddress, data);
 }
 
-void I2C::readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {
     i2c_smbus_write_byte(address, subAddress);
 

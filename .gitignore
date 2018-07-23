@@ -1,0 +1,3 @@
+*.o
+*~
+extras/*/examples/MPU_WhoAmI
