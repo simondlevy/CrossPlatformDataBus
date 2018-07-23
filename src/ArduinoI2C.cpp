@@ -21,7 +21,7 @@
 
 #include <Arduino.h>
 #ifdef __MK20DX256__
-#include <I2C::t3.h>
+#include <i2c_t3.h>
 #define NOSTOP I2C_NOSTOP
 #else
 #include <Wire.h>
