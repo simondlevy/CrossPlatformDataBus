@@ -17,7 +17,10 @@ simple, we provide a single example sketch
 which reads from the &ldquo;Who am I&rdquo; register (0x75) of an Invensense MPU Internal Measurement Unit
 (device address 0x68).  Success at reading from this register results in a reported value of 0x71.  Arduino users who
 have such a sensor can just open the <b>File/CrossPlatformI2C/example</b> menu item to try out the sketch.
+
 RaspberryPi users should download and install WiringPi, then cd to
 CrossPlatformI2C/extras/wiringpi/examples, and run make to build the example. 
+You may have to run this examples as root; i.e., <tt>sudo ./MPU_WhoAmI</tt>.
+
 Users of NVIDIA Jetson and other Linux-based boards can cd to CrossPlatformI2C/extras/i2cdev/examples, and run make.
 You may have to run this examples as root; i.e., <tt>sudo ./MPU_WhoAmI</tt>.
