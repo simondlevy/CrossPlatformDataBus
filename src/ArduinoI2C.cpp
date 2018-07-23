@@ -20,7 +20,8 @@
 #include "CrossPlatformI2C.h"
 
 #include <Arduino.h>
-#ifdef __MK20DX256__
+
+#if defined(TEENSYDUINO)
 #include <i2c_t3.h>
 #define NOSTOP I2C_NOSTOP
 #else

@@ -20,7 +20,7 @@
 
 #include "CrossPlatformI2C.h"
 
-#ifdef __MK20DX256__
+#if defined(TEENSYDUINO)
 #include <i2c_t3.h>
 #define NOSTOP I2C_NOSTOP
 #else
@@ -35,8 +35,8 @@ static uint8_t device;
  
 void setup()
 {
-#ifdef __MK20DX256__
-    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_INT, I2C_RATE_400);
+#if defined(TEENSYDUINO)
+    Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_INT, 400000);
 #else
     Wire.begin();
 #endif
