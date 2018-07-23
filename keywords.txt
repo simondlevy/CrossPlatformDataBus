@@ -1,0 +1,4 @@
+i2c_delay	KEYWORD2
+i2c_setup	KEYWORD2
+i2c_writeRegister	KEYWORD2
+i2c_readRegisters	KEYWORD2
