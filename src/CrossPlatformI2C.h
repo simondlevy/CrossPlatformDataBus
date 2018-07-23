@@ -23,13 +23,17 @@
 
 class I2C {
 
-    static void    delay(uint32_t msec);
+    public:
 
-    static uint8_t setup(uint8_t address);
+        static void    delay(uint32_t msec);
 
-    static void    writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
+        static uint8_t open(uint8_t address);
 
-    static void    readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
+        void           close(uint8_t device);
+
+        static void    writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
+
+        static void    readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 };
 
 

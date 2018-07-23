@@ -33,9 +33,14 @@ void I2C::delay(uint32_t msec)
     delay(msec);
 }
 
-uint8_t I2C::setup(uint8_t address)
+uint8_t I2C::open(uint8_t address)
 {
     return address;
+}
+
+void I2C::close(uint8_t device)
+{
+    (void)device;
 }
 
 void I2C::writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)

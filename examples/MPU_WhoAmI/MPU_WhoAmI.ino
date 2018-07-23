@@ -28,8 +28,10 @@
 #define NOSTOP false
 #endif
 
-static const uint8_t  MPU_ADDRESS  = 0x68;
-static const uint8_t  MPU_WHO_AM_I = 0x75;
+static const uint8_t  MPU_ADDRESS = 0x68;
+static const uint8_t  MPU_WHOAMI  = 0x75;
+
+static uint8_t device;
  
 void setup()
 {
@@ -42,9 +44,19 @@ void setup()
     delay(100);
 
     Serial.begin(115200);
+
+    device = I2C::open(MPU_ADDRESS);
+
+    delay(100);
 }
 
 void loop()
 {  
+
+    uint8_t data;
+    I2C::readRegisters(device, MPU_WHOAMI, 1, &data);
+    Serial.print("I am 0x");
+    Serial.println(data, HEX);
+
     delay(1000);
 }
