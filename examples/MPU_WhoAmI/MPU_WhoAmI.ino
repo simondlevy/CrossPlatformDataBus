@@ -45,7 +45,7 @@ void setup()
 
     Serial.begin(115200);
 
-    device = I2C::open(MPU_ADDRESS);
+    device = cpi2c_open(MPU_ADDRESS);
 
     delay(100);
 }
@@ -54,7 +54,7 @@ void loop()
 {  
 
     uint8_t data;
-    I2C::readRegisters(device, MPU_WHOAMI, 1, &data);
+    cpi2c_readRegisters(device, MPU_WHOAMI, 1, &data);
     Serial.print("I am 0x");
     Serial.println(data, HEX);
 

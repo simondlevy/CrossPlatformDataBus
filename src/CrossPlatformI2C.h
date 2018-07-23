@@ -1,5 +1,4 @@
 /* 
-
    cross_platform.h: Cross-platform routine support
 
    This file is part of EM7180.
@@ -21,19 +20,13 @@
 
 #include <stdint.h>
 
-class I2C {
+void    cpi2c_delay(uint32_t msec);
 
-    public:
+uint8_t cpi2c_open(uint8_t address);
 
-        static void    delay(uint32_t msec);
+void    cpi2c_close(uint8_t device);
 
-        static uint8_t open(uint8_t address);
+void    cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
 
-        void           close(uint8_t device);
-
-        static void    writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
-
-        static void    readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
-};
-
+void    cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 

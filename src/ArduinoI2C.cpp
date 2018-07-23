@@ -29,22 +29,22 @@
 #define NOSTOP false
 #endif
 
-void I2C::delay(uint32_t msec)
+void cpi2c_delay(uint32_t msec)
 {
     delay(msec);
 }
 
-uint8_t I2C::open(uint8_t address)
+uint8_t cpi2c_open(uint8_t address)
 {
     return address;
 }
 
-void I2C::close(uint8_t device)
+void cpi2c_close(uint8_t device)
 {
     (void)device;
 }
 
-void I2C::writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
+void cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 {
     Wire.beginTransmission(address);  // Initialize the Tx buffer
     Wire.write(subAddress);           // Put slave register address in Tx buffer
@@ -52,7 +52,7 @@ void I2C::writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
     Wire.endTransmission();           // Send the Tx buffer
 }
 
-void I2C::readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {  
     Wire.beginTransmission(address);   // Initialize the Tx buffer
     Wire.write(subAddress);            // Put slave register address in Tx buffer
