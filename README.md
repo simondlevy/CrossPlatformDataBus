@@ -11,7 +11,7 @@ I<sup>2</sup>Cdevlib, CrossPlatformI2C does not provide code for particular I<su
 we provide a separate repository with support for each such sensor, which works together with CrossPlatformI2C to help
 you use that sensor.  Currently supported sensors include:
 
-* [EM7180](https://github.com/simondlevy/EM7180) SEntral Sensor Fusion Solution
+* [EM7180](https://github.com/simondlevy/EM7180) SENtral Sensor Fusion Solution
 
 * [MPU9250](https://github.com/simondlevy/MPU9250) Intertial Measurement Unit
 
