@@ -9,7 +9,11 @@ popular micrcontroller and single-board-computer platforms:
 The project is similar in spirit to Jeff Rowberg's [I<sup>2</sup>Cdevlib](https://www.i2cdevlib.com), but unlike
 I<sup>2</sup>Cdevlib, CrossPlatformI2C does not provide code for particular I<sup>2</sup>C devices.  Instead,
 we provide a separate repository with support for each such sensor, which works together with CrossPlatformI2C to help
-you use that sensor.
+you use that sensor.  Currently supported sensors include:
+
+* [EM7180](](https://github.com/simondlevy/EM7180) SEntral Sensor Fusion Solution
+
+* [MPU9250](https://github.com/simondlevy/MPU9250) Intertial Measurement Unit
 
 We've set up the library as a standard Arduino library, with <b>src</b> and <b>examples</b> folders.  To keep things
 simple, we provide a single example sketch 
