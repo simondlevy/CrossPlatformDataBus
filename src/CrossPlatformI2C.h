@@ -20,13 +20,27 @@
 
 #include <stdint.h>
 
-void    cpi2c_delay(uint32_t msec);
+void     cpi2c_delay(uint32_t msec);
 
-uint8_t cpi2c_open(uint8_t address);
+uint8_t  cpi2c_open(uint8_t address);
 
-void    cpi2c_close(uint8_t device);
+void     cpi2c_close(uint8_t device);
 
-void    cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
+void     cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
 
-void    cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
+void     cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 
+uint8_t  cpi2c_readRegister(uint8_t address, uint16_t subAddress);
+
+uint16_t cpi2c_readRegister16(uint8_t address, uint16_t subAddress);
+
+bool     cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data);
+
+bool     cpi2c_writeRegister_16_16(uint8_t address, uint16_t subAddress, uint16_t data);
+
+void     cpi2c_beginTransmission(uint8_t address);
+
+uint8_t  cpi2c_write(uint8_t data);
+
+uint8_t  cpi2c_endTransmission(bool stop=true);
+ 
