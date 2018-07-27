@@ -42,5 +42,11 @@ void     cpi2c_beginTransmission(uint8_t address);
 
 uint8_t  cpi2c_write(uint8_t data);
 
+uint8_t  cpi2c_read(void);
+
 uint8_t  cpi2c_endTransmission(bool stop=true);
+
+uint8_t  cpi2c_requestFrom(uint8_t address, uint8_t count);
+
+uint8_t  cpi2c_available(void);
  

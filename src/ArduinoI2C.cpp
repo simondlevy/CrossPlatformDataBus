@@ -21,13 +21,13 @@
 
 #include <Arduino.h>
 
-//#if defined(TEENSYDUINO)
-//#include <i2c_t3.h>
-//#define NOSTOP I2C_NOSTOP
-//#else
+#if defined(TEENSYDUINO)
+#include <i2c_t3.h>
+#define NOSTOP I2C_NOSTOP
+#else
 #include <Wire.h>
 #define NOSTOP false
-//#endif
+#endif
 
 void cpi2c_delay(uint32_t msec)
 {
@@ -134,7 +134,22 @@ uint8_t cpi2c_write(uint8_t data)
     return Wire.write(data);
 }
 
+uint8_t cpi2c_read(void)
+{
+    return Wire.read();
+}
+
 uint8_t cpi2c_endTransmission(bool stop)
 {
     return Wire.endTransmission(stop);
+}
+
+uint8_t  cpi2c_requestFrom(uint8_t address, uint8_t count)
+{
+    return Wire.requestFrom(address, count);
+}
+
+uint8_t  cpi2c_available(void)
+{
+    return Wire.available();
 }
