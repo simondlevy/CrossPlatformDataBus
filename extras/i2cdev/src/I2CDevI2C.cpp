@@ -26,13 +26,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-static const uint8_t I2C_BUS_NUMBER = 1;
-
-uint8_t cpi2c_open(uint8_t address)
+uint8_t cpi2c_open(uint8_t address, uint8_t bus)
 {
     // Attempt to open /dev/i2c-<NUMBER>
     char fname[32];
-    sprintf(fname,"/dev/i2c-%d", I2C_BUS_NUMBER);
+    sprintf(fname,"/dev/i2c-%d", bus);
     int fd = open(fname, O_RDWR);
     if (fd < 0) {
         fprintf(stderr, "Unable to open %s\n", fname);
@@ -53,16 +51,32 @@ void cpi2c_close(uint8_t address)
     close(address);
 }
 
-void cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
+bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 {
-    i2c_smbus_write_byte_data(address, subAddress, data);
+    return i2c_smbus_write_byte_data(address, subAddress, data) == 0;
 }
 
-void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+bool cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {
     i2c_smbus_write_byte(address, subAddress);
 
     for (uint8_t k=0; k<count; ++k) {
-        dest[k] = i2c_smbus_read_byte(address);
+        int8_t result = i2c_smbus_read_byte(address);
+        if (result < 0) {
+            return false;
+        }
+        dest[k] = (uint8_t)result;
     }
+    return true;
+}
+
+bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data)
+{
+    return i2c_smbus_write_byte_data(address, subAddress, data) == 0;
+}
+
+uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
+{
+    i2c_smbus_write_byte(address, subAddress);
+    return i2c_smbus_read_word_data(address, subAddress);
 }

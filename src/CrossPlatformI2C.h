@@ -20,7 +20,7 @@
 
 #include <stdint.h>
 
-uint8_t  cpi2c_open(uint8_t address);
+uint8_t  cpi2c_open(uint8_t address, uint8_t bus=1);
 
 void     cpi2c_close(uint8_t device);
 

@@ -29,8 +29,9 @@
 #define NOSTOP false
 #endif
 
-uint8_t cpi2c_open(uint8_t address)
+uint8_t cpi2c_open(uint8_t address, uint8_t bus)
 {
+    (void)bus;
     return address;
 }
 

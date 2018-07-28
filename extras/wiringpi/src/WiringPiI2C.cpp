@@ -21,9 +21,10 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
-uint8_t cpi2c_open(uint8_t address)
+uint8_t cpi2c_open(uint8_t address, uint8_t bus)
 {
-    return (uint8_t)wiringPiI2CSetup (address);
+    (void)address;
+    return (uint8_t)wiringPiI2CSetup(bus);
 }
 
 bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
