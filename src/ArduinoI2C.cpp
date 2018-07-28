@@ -75,6 +75,24 @@ uint8_t cpi2c_readRegister(uint8_t address, uint16_t subAddress)
     return 0; //Error: Sensor did not respond
 }
 
+uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
+{
+    Wire.beginTransmission(address);
+    Wire.write(subAddress); 
+    if (Wire.endTransmission() != 0) //Send a restart command. Do not release bus.
+        return 0; //Sensor did not ACK
+
+    Wire.requestFrom((uint8_t)address, (uint8_t)2);
+    if (Wire.available())
+    {
+        uint8_t msb = Wire.read();
+        uint8_t lsb = Wire.read();
+        return ((uint16_t)msb << 8 | lsb);
+    }
+    
+    return 0; //Error: Sensor did not respond
+}
+
 uint16_t cpi2c_readRegister16(uint8_t address, uint16_t subAddress)
 {
     Wire.beginTransmission(address);
