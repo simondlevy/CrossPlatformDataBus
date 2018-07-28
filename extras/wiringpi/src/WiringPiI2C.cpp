@@ -31,7 +31,7 @@ bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 	return wiringPiI2CWriteReg8(address, subAddress, data) == 0;
 }
 
-uint16_t cpi2c_readRegister16(uint8_t address, uint8_t subAddress)
+uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
 {
     return wiringPiI2CReadReg16 (address, subAddress);
 }

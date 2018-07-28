@@ -15,6 +15,10 @@ you use that sensor.  Currently supported sensors include:
 
 * [MPU9250](https://github.com/simondlevy/MPU9250) Intertial Measurement Unit
 
+* [MB1242](https://github.com/simondlevy/MB1242) Ultrasonic rangefinder
+
+* [VL53L1X](https://github.com/simondlevy/VL53L1X) Time-of-flight rangefinder (partial support)
+
 We've set up the library as a standard Arduino library, with <b>src</b> and <b>examples</b> folders.  To keep things
 simple, we provide a single example sketch 
 [MPU_WhoAmI.ino](https://github.com/simondlevy/CrossPlatformI2C/blob/master/examples/MPU_WhoAmI/MPU_WhoAmI.ino),
