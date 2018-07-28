@@ -85,8 +85,8 @@ uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
     Wire.requestFrom((uint8_t)address, (uint8_t)2);
     if (Wire.available())
     {
-        uint8_t msb = Wire.read();
         uint8_t lsb = Wire.read();
+        uint8_t msb = Wire.read();
         return ((uint16_t)msb << 8 | lsb);
     }
     
