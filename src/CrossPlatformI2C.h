@@ -20,13 +20,11 @@
 
 #include <stdint.h>
 
-void     cpi2c_delay(uint32_t msec);
-
 uint8_t  cpi2c_open(uint8_t address);
 
 void     cpi2c_close(uint8_t device);
 
-void     cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
+bool     cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
 
 void     cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 

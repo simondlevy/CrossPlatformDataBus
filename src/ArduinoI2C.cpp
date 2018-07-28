@@ -29,11 +29,6 @@
 #define NOSTOP false
 #endif
 
-void cpi2c_delay(uint32_t msec)
-{
-    delay(msec);
-}
-
 uint8_t cpi2c_open(uint8_t address)
 {
     return address;
@@ -44,12 +39,12 @@ void cpi2c_close(uint8_t device)
     (void)device;
 }
 
-void cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
+bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 {
-    Wire.beginTransmission(address);  // Initialize the Tx buffer
-    Wire.write(subAddress);           // Put slave register address in Tx buffer
-    Wire.write(data);                 // Put data in Tx buffer
-    Wire.endTransmission();           // Send the Tx buffer
+    Wire.beginTransmission(address);    // Initialize the Tx buffer
+    Wire.write(subAddress);             // Put slave register address in Tx buffer
+    Wire.write(data);                   // Put data in Tx buffer
+    return Wire.endTransmission() == 0; // Send the Tx buffer
 }
 
 void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)

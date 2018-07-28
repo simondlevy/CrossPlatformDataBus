@@ -1,4 +1,3 @@
-cpi2c_delay	KEYWORD2
 cpi2c_open	KEYWORD2
 cpi2c_close	KEYWORD2
 cpi2c_writeRegister	KEYWORD2

@@ -28,11 +28,6 @@
 
 static const uint8_t I2C_BUS_NUMBER = 1;
 
-void cpi2c_delay(uint32_t msec)
-{
-    usleep(msec*1000);
-}
-
 uint8_t cpi2c_open(uint8_t address)
 {
     // Attempt to open /dev/i2c-<NUMBER>

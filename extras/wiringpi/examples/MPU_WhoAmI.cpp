@@ -28,6 +28,8 @@ static const uint8_t  MPU_WHOAMI  = 0x75;
 
 static uint8_t device;
 
+extern void delay(uint32_t msec);
+
 void setup()
 {
     // Set up the wiringPi library
@@ -38,7 +40,7 @@ void setup()
 
     device = cpi2c_open(MPU_ADDRESS);
 
-    cpi2c_delay(100);
+    delay(100);
 }
 
 void loop()
@@ -47,5 +49,5 @@ void loop()
     cpi2c_readRegisters(device, MPU_WHOAMI, 1, &data);
     printf("I am 0x%X\n", data);
 
-    cpi2c_delay(1000);
+    delay(1000);
 }

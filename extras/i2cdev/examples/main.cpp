@@ -16,6 +16,13 @@
    along with EM7180.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <unistd.h>
+
+void delay(uint32_t msec)
+{
+    usleep(msec*1000);
+}
+
 extern void setup(), loop();
 
 int main(int argc, char ** argv)

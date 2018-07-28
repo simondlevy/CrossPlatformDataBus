@@ -21,11 +21,6 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
-void cpi2c_delay(uint32_t msec)
-{
-    delay(msec);
-}
-
 uint8_t cpi2c_open(uint8_t address)
 {
     return (uint8_t)wiringPiI2CSetup (address);
