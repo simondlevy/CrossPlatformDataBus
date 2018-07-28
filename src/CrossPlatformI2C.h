@@ -26,7 +26,7 @@ void     cpi2c_close(uint8_t device);
 
 bool     cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
 
-void     cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
+bool     cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 
 uint8_t  cpi2c_readRegister(uint8_t address, uint16_t subAddress);
 
