@@ -94,7 +94,7 @@ uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
     return 0; //Error: Sensor did not respond
 }
 
-uint16_t cpi2c_readRegister16(uint8_t address, uint16_t subAddress)
+uint16_t cpi2c_readRegister_16(uint8_t address, uint16_t subAddress)
 {
     Wire.beginTransmission(address);
     Wire.write(subAddress >> 8); //MSB
