@@ -37,16 +37,11 @@ uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
     return wiringPiI2CReadReg16 (address, subAddress);
 }
 
-bool cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {
     for (uint8_t i=0; i<count; ++i) {
-        int8_t result = wiringPiI2CReadReg8(address, subAddress+i);
-        if (result < 0) {
-            return false;
-        }
-        dest[i] = (uint8_t)result;
+        dest[i] = wiringPiI2CReadReg8(address, subAddress+i);
     }
-    return true;
 }
 
 bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data)
