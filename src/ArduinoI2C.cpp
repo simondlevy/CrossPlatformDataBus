@@ -19,7 +19,7 @@
 
 #include "CrossPlatformI2C.h"
 
-#include <Arduino.h>
+#include <stdint.h>
 
 #if defined(TEENSYDUINO)
 #include <i2c_t3.h>
@@ -54,7 +54,7 @@ void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uin
     Wire.write(subAddress);            // Put slave register address in Tx buffer
     Wire.endTransmission(NOSTOP);      // Send the Tx buffer, but send a restart to keep connection alive
     uint8_t i = 0;
-    Wire.requestFrom(address, (size_t) count);  // Read bytes from slave register address 
+    Wire.requestFrom(address, count);  // Read bytes from slave register address 
     while (Wire.available()) {
         dest[i++] = Wire.read(); 
     } 
