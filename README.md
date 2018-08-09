@@ -15,6 +15,8 @@ you use that sensor.  Currently supported sensors include:
 
 * [MPU9250](https://github.com/simondlevy/MPU9250) Intertial Measurement Unit
 
+* [MPU6050](https://github.com/simondlevy/MPU6050) Intertial Measurement Unit
+
 * [MB1242](https://github.com/simondlevy/MB1242) Ultrasonic rangefinder
 
 * [VL53L1X](https://github.com/simondlevy/VL53L1X) Time-of-flight rangefinder (partial support)
