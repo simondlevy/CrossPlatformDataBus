@@ -30,7 +30,7 @@ extern void delay(uint32_t msec);
  
 void setup()
 {
-    device = cpi2c_open(MPU_ADDRESS);
+    device = cpi2c_open(MPU_ADDRESS, 0);
 
     delay(100);
 }

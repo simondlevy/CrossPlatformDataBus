@@ -56,18 +56,13 @@ bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
     return i2c_smbus_write_byte_data(address, subAddress, data) == 0;
 }
 
-bool cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
 {
     i2c_smbus_write_byte(address, subAddress);
 
     for (uint8_t k=0; k<count; ++k) {
-        int8_t result = i2c_smbus_read_byte(address);
-        if (result < 0) {
-            return false;
-        }
-        dest[k] = (uint8_t)result;
+        dest[k] = i2c_smbus_read_byte(address);
     }
-    return true;
 }
 
 bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data)
