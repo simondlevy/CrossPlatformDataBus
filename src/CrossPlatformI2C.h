@@ -1,5 +1,5 @@
 /* 
-   cross_platform.h: Cross-platform routine support
+   CrossPlatformI2C.h: Cross-platform function declarations
 
    This file is part of EM7180.
 
@@ -20,13 +20,9 @@
 
 #include <stdint.h>
 
-uint8_t  cpi2c_open(uint8_t address, uint8_t bus=1);
+#include "CrossPlatformI2C_Core.h"
 
 void     cpi2c_close(uint8_t device);
-
-bool     cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data);
-
-void     cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 
 uint8_t  cpi2c_readRegister(uint8_t address, uint16_t subAddress);
 

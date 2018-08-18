@@ -18,7 +18,7 @@
    along with CrossPlatformI2C.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "CrossPlatformI2C.h"
+#include "CrossPlatformI2C_Core.h"
 
 #if defined(TEENSYDUINO)
 #include <i2c_t3.h>
