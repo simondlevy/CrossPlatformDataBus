@@ -19,7 +19,7 @@
   
 ALL = MPU_WhoAmI
 
-INC = ../../../src
+INC = ../../../../src
 SRC = ../src
 
 all: $(ALL)
@@ -33,8 +33,8 @@ MPU_WhoAmI.o: MPU_WhoAmI.cpp
 WiringPiI2C.o: $(SRC)/WiringPiI2C.cpp 
 	g++ -std=c++11 -Wall -I$(SRC) -I$(INC) -c $(SRC)/WiringPiI2C.cpp
 
-main.o: main.cpp 
-	g++ -std=c++11 -Wall -c main.cpp
+main.o: ../../../main.cpp 
+	g++ -std=c++11 -Wall -c ../../../main.cpp
 
 run: MPU_WhoAmI
 	./MPU_WhoAmI
