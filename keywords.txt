@@ -2,3 +2,5 @@ cpi2c_open	KEYWORD2
 cpi2c_close	KEYWORD2
 cpi2c_writeRegister	KEYWORD2
 cpi2c_readRegisters	KEYWORD2
+cpspi_writeRegister	KEYWORD2
+cpspi_readRegisters	KEYWORD2
