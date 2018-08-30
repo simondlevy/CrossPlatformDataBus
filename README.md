@@ -14,7 +14,7 @@ supported sensors include:
 
 * [EM7180](https://github.com/simondlevy/EM7180) SENtral Sensor Fusion Solution
 
-* [MPU](https://github.com/simondlevy/MPU) Invense MPU line of intertial Measurement units
+* [MPU](https://github.com/simondlevy/MPU) line of intertial measurement units from Invensense
 
 * [MB1242](https://github.com/simondlevy/MB1242) Ultrasonic rangefinder
 
