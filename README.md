@@ -20,13 +20,13 @@ supported sensors include:
 
 * [LSM6DSM](https://github.com/simondlevy/LSM6DSM) intertial measurement unit from STMicroelectronics
 
-* [MB1242](https://github.com/simondlevy/MB1242) Ultrasonic rangefinder from MaxBotix
+* [MB1242](https://github.com/simondlevy/MB1242) ultrasonic rangefinder from MaxBotix
 
 * [MPU](https://github.com/simondlevy/MPU) line of intertial measurement units from Invensense
 
 * [MS5637](https://github.com/simondlevy/MS5637) barometer from TE / Measurement Specialties
 
-* [VL53L1X](https://github.com/simondlevy/VL53L1X) Time-of-flight rangefinder from STMicroelectronics (partial support)
+* [VL53L1X](https://github.com/simondlevy/VL53L1X) time-of-flight rangefinder from STMicroelectronics (partial support)
 
 We've set up the library as a standard Arduino library, with <b>src</b> and <b>examples</b> folders.  To keep things
 simple, we provide a single example sketch 
