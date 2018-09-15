@@ -1,5 +1,5 @@
 /* 
-   error.h: error-handling code for CrossPlatformDataBus
+   errmsg.h: error-handling code for CrossPlatformDataBus
 
    Copyright (c) 2018 Simon D. Levy
 
@@ -18,4 +18,4 @@
    along with CrossPlatformDataBus.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-void error(const char * errmsg);
+void errmsg(const char * errmsg);

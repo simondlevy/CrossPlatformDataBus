@@ -1,5 +1,5 @@
 /* 
-   error.cpp: error-handling code for CrossPlatformDataBus
+   errmsg.cpp: error-handling code for CrossPlatformDataBus
 
    Copyright (c) 2018 Simon D. Levy
 
@@ -23,7 +23,7 @@
 
 #include "error.h"
 
-void error(const char * errmsg) 
+void errmsg(const char * errmsg) 
 {
     fprintf(stderr, "%s\n", errmsg);
     exit(1);
