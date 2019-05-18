@@ -20,7 +20,8 @@
 
 #include <stdint.h>
 
-void    cpspi_writeRegister(uint8_t subAddress, uint8_t data);
+bool cpspi_writeRegister(uint8_t subAddress, uint8_t data);
 
-void    cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest);
+bool cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest);
 
+bool cpspi_transfer(const uint8_t * send, uint8_t * recv, uint8_t count);
