@@ -21,7 +21,7 @@
 
 #include <stdint.h>
 
-#if defined(TEENSYDUINO)
+#if defined(__MK20DX256__)
 #include <i2c_t3.h>
 #define NOSTOP I2C_NOSTOP
 #else
