@@ -21,15 +21,16 @@
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 
-void cpspi_writeRegister(uint8_t subAddress, uint8_t data)
+bool cpspi_writeRegister(uint8_t subAddress, uint8_t data)
 {
     uint8_t buff2[2];
     buff2[0] = subAddress;
     buff2[1] = data;
     wiringPiSPIDataRW(1, &buff2[0], 2);
+    return true; // XXX should check
 }
 
-void cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest)
+bool cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest)
 {
      uint8_t buff2[2];
      for (uint8_t i=0; i<count; ++i) {
@@ -38,4 +39,5 @@ void cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest)
          wiringPiSPIDataRW(1, &buff2[0], 2);
          dest[i] = buff2[1];
      }
+    return true; // XXX should check
 }

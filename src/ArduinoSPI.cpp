@@ -19,18 +19,20 @@
 
 #include "CrossPlatformSPI.h"
 
-void cpspi_writeRegister(uint8_t subAddress, uint8_t data)
+bool cpspi_writeRegister(uint8_t subAddress, uint8_t data)
 {
     // XXX stubbed for now
     (void)subAddress;
     (void)data;
+    return false;
 }
 
-void cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest)
+bool cpspi_readRegisters(uint8_t subAddress, uint8_t count, uint8_t * dest)
 {  
     // XXX stubbed for now
     (void)subAddress;
     (void)count;
     (void)dest;
+    return false;
 }
 
