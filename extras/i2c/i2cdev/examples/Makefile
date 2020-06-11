@@ -20,7 +20,7 @@
   
 ALL = MPU_WhoAmI
 
-INC = ../../../src
+INC = ../../../../src/
 SRC = ../src
 
 all: $(ALL)
