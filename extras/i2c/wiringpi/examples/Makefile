@@ -33,7 +33,7 @@ MPU_WhoAmI.o: MPU_WhoAmI.cpp
 WiringPiI2C.o: $(SRC)/WiringPiI2C.cpp 
 	g++ -std=c++11 -Wall -I$(SRC) -I$(INC) -c $(SRC)/WiringPiI2C.cpp
 
-main.o: ../../../main.cpp 
+main.o: ../../../common/main.cpp 
 	g++ -std=c++11 -Wall -c ../../../common/main.cpp
 
 run: MPU_WhoAmI
