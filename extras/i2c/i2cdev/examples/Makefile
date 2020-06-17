@@ -26,7 +26,7 @@ SRC = ../src
 all: $(ALL)
 
 MPU_WhoAmI: MPU_WhoAmI.o I2CDevI2C.o main.o
-	g++ -std=c++11 -o MPU_WhoAmI MPU_WhoAmI.o I2CDevI2C.o main.o
+	g++ -std=c++11 -o MPU_WhoAmI MPU_WhoAmI.o I2CDevI2C.o main.o -li2c
 
 MPU_WhoAmI.o: MPU_WhoAmI.cpp 
 	g++ -std=c++11 -Wall -I$(SRC) -I$(INC) -c MPU_WhoAmI.cpp

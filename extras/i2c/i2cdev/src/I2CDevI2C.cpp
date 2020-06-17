@@ -19,7 +19,9 @@
 #include "CrossPlatformI2C.h"
 
 #include <linux/i2c-dev.h>
+extern "C" {
 #include <i2c/smbus.h>
+}
 #include <sys/ioctl.h>
 #include <string.h>
 #include <stdio.h>
