@@ -48,7 +48,20 @@ bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
     return Wire.endTransmission() == 0; // Send the Tx buffer
 }
 
-void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest)
+bool cpi2c_writeRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * src)
+{
+    Wire.beginTransmission(address);    // Initialize the Tx buffer
+
+    Wire.write(subAddress);             // Put slave register address in Tx buffer
+
+    for (uint8_t i=0; i<count; ++i) {
+        Wire.write(src[i]);
+    }
+
+    return Wire.endTransmission() == 0; // Send the Tx buffer
+}
+
+void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dst)
 {  
     Wire.beginTransmission(address);   // Initialize the Tx buffer
     Wire.write(subAddress);            // Put slave register address in Tx buffer
@@ -56,7 +69,7 @@ void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uin
     uint8_t i = 0;
     Wire.requestFrom(address, count);  // Read bytes from slave register address 
     while (Wire.available()) {
-        dest[i++] = Wire.read(); 
+        dst[i++] = Wire.read(); 
     } 
 }
 
