@@ -12,7 +12,8 @@ we provide a separate repository with support for each such sensor, which works
 together with CrossPlatformDataBus to help you use that sensor.  Currently
 supported sensors include:
 
-* [EM7180](https://github.com/simondlevy/EM7180) SENtral Sensor Fusion Solution from Tlera Corp
+* [USFS](https://github.com/simondlevy/USFS) and [USFSMAX](https://github.com/simondlevy/USFSMAX)
+motion co-processors from from Pesky Products
 
 * [LIS2MDL](https://github.com/simondlevy/LIS2MDL) magnetometer from STMicroelectronics
 
