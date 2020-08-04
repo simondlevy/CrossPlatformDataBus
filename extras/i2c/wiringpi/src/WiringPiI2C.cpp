@@ -48,3 +48,9 @@ bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data
 {
     return wiringPiI2CWriteReg8 (address, subAddress, data) > 0;
 }
+
+
+bool cpi2c_writeRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * src)
+{
+    return false;
+}
