@@ -54,6 +54,23 @@ bool cpi2c_writeRegisters(uint8_t address,
     return Wire.endTransmission() == 0; // Send the Tx buffer
 }
 
+bool cpi2c_writeRegisters_16(uint8_t address,
+                          uint16_t subAddress,
+                          uint32_t count,
+                          uint8_t * src)
+{
+    Wire.beginTransmission(address);    // Initialize the Tx buffer
+
+    Wire.write(subAddress >> 8); //MSB
+    Wire.write(subAddress & 0xFF); //LSB
+
+    for (uint32_t i=0; i<count; ++i) {
+        Wire.write(src[i]);
+    }
+
+    return Wire.endTransmission() == 0; // Send the Tx buffer
+}
+
 void cpi2c_readRegisters(uint8_t address,
                          uint8_t subAddress,
                          uint8_t count,
@@ -145,8 +162,9 @@ bool cpi2c_writeRegister_16_16(uint8_t address,
     Wire.write(subAddress & 0xFF); //LSB
     Wire.write(data >> 8); //MSB
     Wire.write(data & 0xFF); //LSB
-    if (Wire.endTransmission() != 0)
-        return 0; //Error: Sensor did not ACK
+    if (Wire.endTransmission() != 0) {
+        return false; //Error: Sensor did not ACK
+    }
     
     return true; // success
 }
