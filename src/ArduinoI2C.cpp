@@ -33,16 +33,19 @@ void cpi2c_close(uint8_t device)
 bool cpi2c_writeRegister(uint8_t address, uint8_t subAddress, uint8_t data)
 {
     Wire.beginTransmission(address);    // Initialize the Tx buffer
-    Wire.write(subAddress);             // Put slave register address in Tx buffer
+    Wire.write(subAddress);             // Put slave reg address in Tx buffer
     Wire.write(data);                   // Put data in Tx buffer
     return Wire.endTransmission() == 0; // Send the Tx buffer
 }
 
-bool cpi2c_writeRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * src)
+bool cpi2c_writeRegisters(uint8_t address,
+                          uint8_t subAddress,
+                          uint8_t count,
+                          uint8_t * src)
 {
     Wire.beginTransmission(address);    // Initialize the Tx buffer
 
-    Wire.write(subAddress);             // Put slave register address in Tx buffer
+    Wire.write(subAddress);             // Put slave reg address in Tx buffer
 
     for (uint8_t i=0; i<count; ++i) {
         Wire.write(src[i]);
@@ -51,13 +54,16 @@ bool cpi2c_writeRegisters(uint8_t address, uint8_t subAddress, uint8_t count, ui
     return Wire.endTransmission() == 0; // Send the Tx buffer
 }
 
-void cpi2c_readRegisters(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dst)
+void cpi2c_readRegisters(uint8_t address,
+                         uint8_t subAddress,
+                         uint8_t count,
+                         uint8_t * dst)
 {  
     Wire.beginTransmission(address);   // Initialize the Tx buffer
-    Wire.write(subAddress);            // Put slave register address in Tx buffer
-    Wire.endTransmission(NOSTOP);      // Send the Tx buffer, but send a restart to keep connection alive
+    Wire.write(subAddress);            // Put slave reg address in Tx buffer
+    Wire.endTransmission(NOSTOP);      // Send Tx buffer; keep connection alive
     uint8_t i = 0;
-    Wire.requestFrom(address, count);  // Read bytes from slave register address 
+    Wire.requestFrom(address, count);  // Read bytes from slave reg address 
     while (Wire.available()) {
         dst[i++] = Wire.read(); 
     } 
@@ -68,7 +74,7 @@ uint8_t cpi2c_readRegister(uint8_t address, uint16_t subAddress)
     Wire.beginTransmission(address);
     Wire.write(subAddress >> 8); //MSB
     Wire.write(subAddress & 0xFF); //LSB
-    if (Wire.endTransmission() != 0) //Send a restart command. Do not release bus.
+    if (Wire.endTransmission() != 0) //Send restart cmd w/o releasing bus
         return 0; //Sensor did not ACK
 
     Wire.requestFrom((uint8_t)address, (uint8_t)1);
@@ -82,7 +88,7 @@ uint16_t cpi2c_readRegister_8_16(uint8_t address, uint8_t subAddress)
 {
     Wire.beginTransmission(address);
     Wire.write(subAddress); 
-    if (Wire.endTransmission() != 0) //Send a restart command. Do not release bus.
+    if (Wire.endTransmission() != 0) //Send restart cmd w/o releasing bus
         return 0; //Sensor did not ACK
 
     Wire.requestFrom((uint8_t)address, (uint8_t)2);
@@ -101,7 +107,7 @@ uint16_t cpi2c_readRegister_16(uint8_t address, uint16_t subAddress)
     Wire.beginTransmission(address);
     Wire.write(subAddress >> 8); //MSB
     Wire.write(subAddress & 0xFF); //LSB
-    if (Wire.endTransmission() != 0) //Send a restart command. Do not release bus.
+    if (Wire.endTransmission() != 0) //Send restart cmd w/o releasing bus
         return 0; //Sensor did not ACK
 
     Wire.requestFrom((uint8_t)address, (uint8_t)2);
@@ -115,7 +121,9 @@ uint16_t cpi2c_readRegister_16(uint8_t address, uint16_t subAddress)
     return 0; //Error: Sensor did not respond
 }
 
-bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data)
+bool cpi2c_writeRegister_16_8(uint8_t address,
+                              uint16_t subAddress,
+                              uint8_t data)
 {
    
     Wire.beginTransmission(address);
@@ -128,7 +136,9 @@ bool cpi2c_writeRegister_16_8(uint8_t address, uint16_t subAddress, uint8_t data
     return true; // success
 }
 
-bool cpi2c_writeRegister_16_16(uint8_t address, uint16_t subAddress, uint16_t data)
+bool cpi2c_writeRegister_16_16(uint8_t address,
+                               uint16_t subAddress,
+                               uint16_t data)
 {
     Wire.beginTransmission(address);
     Wire.write(subAddress >> 8); //MSB
