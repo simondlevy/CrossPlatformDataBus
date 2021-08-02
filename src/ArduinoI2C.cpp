@@ -9,6 +9,7 @@
 
 #include "CrossPlatformI2C.h"
 
+#include <Arduino.h>
 #include <stdint.h>
 
 #if defined(__MK20DX256__)
@@ -163,15 +164,16 @@ bool cpi2c_writeRegister_16_8(uint8_t address,
     Wire.write(subAddress >> 8); //MSB
     Wire.write(subAddress & 0xFF); //LSB
     Wire.write(data);
-    if (Wire.endTransmission() != 0)
+    if (Wire.endTransmission() != 0) {
         return false; //Error: Sensor did not ACK
-  
+    }
+
     return true; // success
 }
 
 bool cpi2c_writeRegister_16_16(uint8_t address,
-                               uint16_t subAddress,
-                               uint16_t data)
+        uint16_t subAddress,
+        uint16_t data)
 {
     Wire.beginTransmission(address);
     Wire.write(subAddress >> 8); //MSB
