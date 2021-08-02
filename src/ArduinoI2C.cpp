@@ -77,6 +77,22 @@ void cpi2c_readRegisters(uint8_t address,
                          uint8_t * dst)
 {  
     Wire.beginTransmission(address);   // Initialize the Tx buffer
+    Wire.write(subAddress >> 8); //MSB
+    Wire.write(subAddress & 0xFF); //LSB
+    Wire.endTransmission(NOSTOP);      // Send Tx buffer; keep connection alive
+    uint32_t i = 0;
+    Wire.requestFrom(address, count);  // Read bytes from slave reg address 
+    while (Wire.available()) {
+        dst[i++] = Wire.read(); 
+    } 
+}
+
+void cpi2c_readRegisters_16(uint8_t address,
+                         uint16_t subAddress,
+                         uint32_t count,
+                         uint8_t * dst)
+{  
+    Wire.beginTransmission(address);   // Initialize the Tx buffer
     Wire.write(subAddress);            // Put slave reg address in Tx buffer
     Wire.endTransmission(NOSTOP);      // Send Tx buffer; keep connection alive
     uint8_t i = 0;
