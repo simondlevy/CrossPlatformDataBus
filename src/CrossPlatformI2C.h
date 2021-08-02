@@ -36,8 +36,8 @@ bool cpi2c_writeRegister_16_16(uint8_t address,
                                uint16_t data);
 
 bool cpi2c_writeRegisters_16(uint8_t address,
-                             uint8_t subAddress,
-                             uint8_t count,
+                             uint16_t subAddress,
+                             uint32_t count,
                              uint8_t * src);
 
 void cpi2c_beginTransmission(uint8_t address);
