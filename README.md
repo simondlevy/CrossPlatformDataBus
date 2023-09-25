@@ -27,8 +27,6 @@ motion co-processors from from Pesky Products
 
 * [MS5637](https://github.com/simondlevy/MS5637) barometer from TE / Measurement Specialties
 
-* [VL53L1X](https://github.com/simondlevy/VL53L1X) time-of-flight rangefinder from STMicroelectronics (partial support)
-
 We've set up the library as a standard Arduino library, with <b>src</b> and <b>examples</b> folders.  To keep things
 simple, we provide a single example sketch 
 [MPU_WhoAmI.ino](https://github.com/simondlevy/CrossPlatformDataBus/blob/master/examples/MPU_WhoAmI/MPU_WhoAmI.ino),
